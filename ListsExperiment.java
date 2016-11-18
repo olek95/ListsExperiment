@@ -23,7 +23,7 @@ public class ListsExperiment {
         before = System.nanoTime();
         aList.set(0, 1);
         after = System.nanoTime();
-        System.out.println("ArrayList wstawianie na początku: " + (after - before)/1000000000);
+        System.out.println("ArrayList wstawianie na początku: " + (after - before));
         before = System.nanoTime();
         lList.set(0, 1);
         after = System.nanoTime();
