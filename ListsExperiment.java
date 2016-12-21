@@ -2,6 +2,7 @@ package listsexperiment;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 /**
  * Klasa <code>ListsExperiment</code> reprezentuje program porównujący prędkość
@@ -25,7 +26,8 @@ public class ListsExperiment {
         after = System.nanoTime();
         System.out.println("ArrayList wstawianie na początku: " + (after - before));
         before = System.nanoTime();
-        lList.add(0, 1);
+        ListIterator<Integer> it = lList.listIterator();
+        it.add(1);
         after = System.nanoTime();
         System.out.println("LinkedList wstawianie na początku: " + (after - before));
         before = System.nanoTime();
@@ -33,7 +35,8 @@ public class ListsExperiment {
         after = System.nanoTime();
         System.out.println("ArrayList wstawianie w środku: " + (after - before));
         before = System.nanoTime();
-        lList.add(49, 2);
+        it = lList.listIterator(49);
+        it.add(2);
         after = System.nanoTime();
         System.out.println("LinkedList wstawianie w środku: " + (after - before));
         before = System.nanoTime();
@@ -41,7 +44,8 @@ public class ListsExperiment {
         after = System.nanoTime();
         System.out.println("ArrayList wstawianie na końcu: " + (after - before));
         before = System.nanoTime();
-        lList.add(99, 3);
+        it = lList.listIterator(99);
+        it.add(3);
         after = System.nanoTime();
         System.out.println("LinkedList wstawianie na końcu: " + (after - before));
         before = System.nanoTime();
@@ -49,7 +53,9 @@ public class ListsExperiment {
         after = System.nanoTime();
         System.out.println("ArrayList usuwanie na początku: " + (after - before));
         before = System.nanoTime();
-        lList.remove(0);
+        it = lList.listIterator();
+        it.next();
+        it.remove();
         after = System.nanoTime();
         System.out.println("LinkedList usuwanie na początku: " + (after - before));
         before = System.nanoTime();
@@ -57,7 +63,9 @@ public class ListsExperiment {
         after = System.nanoTime();
         System.out.println("ArrayList usuwanie w środku: " + (after - before));
         before = System.nanoTime();
-        lList.remove(50);
+        it = lList.listIterator(50);
+        it.next();
+        it.remove();
         after = System.nanoTime();
         System.out.println("LinkedList usuwanie w środku: " + (after - before));
         before = System.nanoTime();
@@ -65,7 +73,9 @@ public class ListsExperiment {
         after = System.nanoTime();
         System.out.println("ArrayList usuwanie na końcu: " + (after - before));
         before = System.nanoTime();
-        lList.remove(100);
+        it = lList.listIterator(100);
+        it.next(); 
+        it.remove();
         after = System.nanoTime();
         System.out.println("LinkedList usuwanie na końcu: " + (after - before));
         before = System.nanoTime();
@@ -73,7 +83,8 @@ public class ListsExperiment {
         after = System.nanoTime();
         System.out.println("ArrayList zwracanie początku: " + (after - before));
         before = System.nanoTime();
-        lList.get(0);
+        it = lList.listIterator();
+        it.next();
         after = System.nanoTime();
         System.out.println("LikedList zwracanie początku: " + (after - before));
         before = System.nanoTime();
@@ -81,7 +92,8 @@ public class ListsExperiment {
         after = System.nanoTime();
         System.out.println("ArrayList zwracanie środka: " + (after - before));
         before = System.nanoTime();
-        lList.get(49);
+        it = lList.listIterator(49);
+        it.next();
         after = System.nanoTime();
         System.out.println("LinkedList zwracanie środka: " + (after - before));
         before = System.nanoTime();
@@ -89,7 +101,8 @@ public class ListsExperiment {
         after = System.nanoTime();
         System.out.println("ArrayList zwracanie końca: " + (after - before));
         before = System.nanoTime();
-        lList.get(99);
+        it = lList.listIterator(99);
+        it.next();
         after = System.nanoTime();
         System.out.println("LinkedList zwracanie końca: " + (after - before));
     }
